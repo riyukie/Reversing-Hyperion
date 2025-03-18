@@ -1,4 +1,4 @@
-# Analyzing CRT Thread Management - Part 1: Lifecycle, PTD, and Initialization
+# Analyzing Thread Management - Part 1: Lifecycle, PTD, and Initialization
 
 ## Introduction  
 > [!IMPORTANT]  
