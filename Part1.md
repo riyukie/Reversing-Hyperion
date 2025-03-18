@@ -19,8 +19,8 @@
 ---
 
 ## Thread Lifecycle Dispatcher  
-### FUN_1816a88a8: The main Function  
-**Function**: Route thread operations thru the parameter `param_2`.  
+### FUN_1816a88a8: The main Function 
+**Function**: Route thread operations thru the parameter `param_2`. This is executed as the second function within the first exported function.
 
 ```c
 ulonglong FUN_1816a88a8(undefined1 param_1, int param_2, longlong param_3) {
