@@ -207,7 +207,7 @@ FOUND_SECTION:
 }
 ```
 **Anti-Tamper Measure (Found both functions within RobloxPlayerBeta.exe and RobloxPlayerBeta.dll)**:  
-- Validates memory execute permissions, critical for Control Flow Guard (CFG) < -- We'll be covering soon.  
+- Validates memory execute permissions.
 
 ---
 
