@@ -206,7 +206,7 @@ FOUND_SECTION:
     return result;
 }
 ```
-**Anti-Tamper Measure (Found both functions within RobloxPlayerBeta.exe and RobloxPlayerBeta.dll)**:  
+**Anti-Tamper Measure**:  
 - Validates memory execute permissions.
 
 ---
