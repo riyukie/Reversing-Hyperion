@@ -174,11 +174,36 @@ void FUN_1816a8e80(DWORD code) {
 **Function**: Validate code section permissions.  
 
 ```c
-ulonglong FUN_1816a8b54(longlong addr) {
-  IMAGE_SECTION_HEADER* sect = /* Find section for addr */;
-  if (sect->Characteristics & IMAGE_SCN_MEM_EXECUTE) 
-    return sect->VirtualAddress | 0x100; // Mark executable
-  return 0;
+ulonglong FUN_1816a8b54(longlong addr)
+{
+    ulonglong result = 0;
+    IMAGE_SECTION_HEADER* section;
+
+    for (section = &IMAGE_SECTION_HEADER_180000180;
+         section != reinterpret_cast<IMAGE_SECTION_HEADER*>(&DAT_180000298);
+         section++)
+    {
+        ulonglong sectionStart = static_cast<ulonglong>(section->VirtualAddress);
+        ulonglong sectionEnd = sectionStart + section->Misc.PhysicalAddress;
+
+        if (sectionStart <= addr - 0x180000000U && addr - 0x180000000U < sectionEnd) {
+            goto FOUND_SECTION;
+        }
+    }
+    section = nullptr;
+
+FOUND_SECTION:
+    if (section == nullptr) {
+        result &= 0xffffffffffffff00;
+    } else {
+        uint7 uVar2 = static_cast<uint7>(result >> 8);
+        if (static_cast<int>(section->Characteristics) < 0) {
+            result = static_cast<ulonglong>(uVar2) << 8;
+        } else {
+            result = (static_cast<ulonglong>(uVar2) << 8) | 1;
+        }
+    }
+    return result;
 }
 ```
 **Anti-Tamper Measure (Found both functions within RobloxPlayerBeta.exe and RobloxPlayerBeta.dll)**:  
