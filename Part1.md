@@ -207,11 +207,11 @@ FOUND_SECTION:
 }
 ```
 **Anti-Tamper Measure**:  
-- Validates memory execute permissions.
+- Validates memory execute permissions. (Indirect call through CFG)
 
 ---
 
-## Conclusion  
+## Conclusion 
 In this deep dive, we explored:  
 
 1. **Thread Dispatcher**: Routes initialization/cleanup tasks via `param_2`.  
